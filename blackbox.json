@@ -1,0 +1,56 @@
+{
+	"name" : "BlackBox Templates",
+	"scopeName" : "text.html.blackbox",
+	"fileTypes" : ["php"],
+	"patterns" : [
+		{
+			"include" : "text.html.basic"
+		},
+
+		{
+			"include" : "source.php"
+		},
+
+		{
+			"match" : "{(section|asset|yield|extends)\\((.+)\\)}",
+			"name"	: "variable.blackbox",
+			"captures" : {
+				"1" : { "name" : "support.constant" }
+			}
+		},
+
+		{
+			"match" : "{(define)\\((.+), (.+)\\)}",
+			"name" : "variable.blackbox",
+			"captures" : {
+				"1" : { "name" : "support.constant.blackbox"} ,
+				"3" : { "name" : "string.blackbox" }
+			}
+		},
+
+		{
+			"match" : "{/(\\w+)}",
+			"name"	: "variable.blackbox",
+			"captures" : {
+				"1" : { "name" : "support.constant.blackbox" }
+			}
+		},
+
+		{
+			"match" : "{(foreach) (.+) (as) (.+)}",
+			"name"	: "variable.blackbox",
+			"captures" : {
+				"1" : { "name" : "support.constant.blackbox" },
+				"3" : { "name" : "keyword.blackbox" }
+			}
+		},
+
+		{
+			"match" : "({{2,3})(.+?)(}{2,3})",
+			"name"	: "variable.blackbox",
+			"captures" : {
+				"2" : { "name" : "support.constant.blackbox" }
+			}
+		}
+	]
+}
