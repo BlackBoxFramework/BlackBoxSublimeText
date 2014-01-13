@@ -4,7 +4,7 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>php</string>
+		<string>tpl.php</string>
 	</array>
 	<key>name</key>
 	<string>BlackBox Templates</string>
@@ -28,7 +28,21 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>{(section|asset|yield|extends)\((.+)\)}</string>
+			<string>{(foreach|while|if|elseif|for|switch|case|include|section|yield|extend)\((.+)\)}</string>
+			<key>name</key>
+			<string>variable.blackbox</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>{(else|default|break|continue)}</string>
 			<key>name</key>
 			<string>variable.blackbox</string>
 		</dict>
@@ -61,26 +75,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>{/(\w+)}</string>
-			<key>name</key>
-			<string>variable.blackbox</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.blackbox</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.blackbox</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>{(foreach) (.+) (as) (.+)}</string>
+			<string>{/(foreach|while|if|for|switch|case|default|section)}</string>
 			<key>name</key>
 			<string>variable.blackbox</string>
 		</dict>
@@ -94,7 +89,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>({{2,3})(.+?)(}{2,3})</string>
+			<string>{{(.+?)}}</string>
 			<key>name</key>
 			<string>variable.blackbox</string>
 		</dict>

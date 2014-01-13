@@ -1,7 +1,7 @@
 {
 	"name" : "BlackBox Templates",
 	"scopeName" : "text.html.blackbox",
-	"fileTypes" : ["php"],
+	"fileTypes" : ["tpl.php"],
 	"patterns" : [
 		{
 			"include" : "text.html.basic"
@@ -12,11 +12,19 @@
 		},
 
 		{
-			"match" : "{(section|asset|yield|extends)\\((.+)\\)}",
+			"name" : "variable.blackbox",
+			"match" : "{(foreach|while|if|elseif|for|switch|case|include|section|yield|extend)\\((.+)\\)}",
+			"captures" : {
+				"1" : { "name" : "support.constant" }
+			}		
+		},
+
+		{
+			"match" : "{(else|default|break|continue)}",
 			"name"	: "variable.blackbox",
 			"captures" : {
 				"1" : { "name" : "support.constant" }
-			}
+			}			
 		},
 
 		{
@@ -29,7 +37,7 @@
 		},
 
 		{
-			"match" : "{/(\\w+)}",
+			"match" : "{/(foreach|while|if|for|switch|case|default|section)}",
 			"name"	: "variable.blackbox",
 			"captures" : {
 				"1" : { "name" : "support.constant.blackbox" }
@@ -37,16 +45,7 @@
 		},
 
 		{
-			"match" : "{(foreach) (.+) (as) (.+)}",
-			"name"	: "variable.blackbox",
-			"captures" : {
-				"1" : { "name" : "support.constant.blackbox" },
-				"3" : { "name" : "keyword.blackbox" }
-			}
-		},
-
-		{
-			"match" : "({{2,3})(.+?)(}{2,3})",
+			"match" : "{{(.+?)}}",
 			"name"	: "variable.blackbox",
 			"captures" : {
 				"2" : { "name" : "support.constant.blackbox" }
