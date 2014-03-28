@@ -1,7 +1,7 @@
 {
 	"name" : "BlackBox Templates",
 	"scopeName" : "text.html.blackbox",
-	"fileTypes" : ["tpl.php"],
+	"fileTypes" : ["tpl"],
 	"patterns" : [
 		{
 			"include" : "text.html.basic"

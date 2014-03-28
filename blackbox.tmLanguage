@@ -4,7 +4,7 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>tpl.php</string>
+		<string>tpl</string>
 	</array>
 	<key>name</key>
 	<string>BlackBox Templates</string>
